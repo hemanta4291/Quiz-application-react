@@ -1,19 +1,4 @@
 import { useEffect, useState } from 'react'
-// import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-// import 'material-icons/iconfont/material-icons.css';
-// import Home from './pages/Home';
-// import Products from './pages/Products';
-// import ProductDetail from './pages/ProductDetail';
-// import ContactUs from './pages/ContactUs';
-// import CommonLayout from './loyout/CommonLayout';
-// import Cart from './pages/Cart';
-// import AuthLayout from './loyout/AuthLayout';
-// import SignIn from './pages/SignIn';
-// import useAuthenticationCheck from './hooks/useAuthenticationCheck';
-// import PublicRoute from './loyout/PublicRoute';
-// import PrivateRoute from './loyout/PrivateRoute';
-// import NotFound from './components/NotFound';
-// import SignUp from './pages/SignUp';
 const questionsData = [
   // Question 1
   {
@@ -106,10 +91,7 @@ function App() {
 
   const startTimer = () => {
     const interval = setInterval(() => {
-      setTimer((prevTimer) => {
-        localStorage.setItem('timer', prevTimer - 1);
-        return prevTimer - 1;
-      });
+      setTimer((prevTimer) => prevTimer - 1);
       console.log('cholteche.....')
     }, 1000);
     setIntervalId(interval);
@@ -148,13 +130,12 @@ function App() {
       [currentQuestion]: selectedAnswers[currentQuestion],
     }));
 
-    console.log(selectedAnswers)
+    
 
     if (selectedAnswers[currentQuestion] === questionsData[currentQuestion].correctAnswer) {
       setScore((prevScore) => prevScore + 5);
     }
 
-console.log(selectedAnswers)
      
 
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
